@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ok-202012-phonesell-pa-helloworld" />
+            <option value="$PROJECT_DIR$/ok-phonesell-pa-common-mp" />
           </set>
         </option>
       </GradleProjectSettings>
