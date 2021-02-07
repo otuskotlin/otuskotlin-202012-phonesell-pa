@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.phonesell.pa.helloworld
+package pa.helloworld
 
 fun main() {
     println ("Hello Big world!!!!!!!!!!!")

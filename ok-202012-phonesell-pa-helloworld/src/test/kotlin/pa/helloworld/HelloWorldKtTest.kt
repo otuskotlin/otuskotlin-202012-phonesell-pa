@@ -1,6 +1,5 @@
-package ru.otus.otuskotlin.phonesell.pa.helloworld
+package pa.helloworld
 
-import org.junit.Assert.*
 import kotlin.test.Test
 
 class HelloWorldKtTest{
