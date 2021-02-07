@@ -35,11 +35,10 @@ private fun <T: Comparable<T>> T.validate(validator: ValidatorInRange<T>) =valid
 
 
 class ValidatorInRange<T: Comparable<T>>(val field: String, val min: T, val max: T) {
-    fun validate(sample: T): ValidationResult {
-        if (sample >= min && sample <= max ) {
-            return ValidationResult.SUCCESS
+        fun validate(sample: T): ValidationResult =if (sample in min..max) {
+            ValidationResult.SUCCESS
         }else{
-            return ValidationResult(
+            ValidationResult(
                 errors = listOf(
                     ValidationError(
                         message = "Field $field with value $sample mast have value of range [$min,$max]"
@@ -47,25 +46,20 @@ class ValidatorInRange<T: Comparable<T>>(val field: String, val min: T, val max:
                 )
             )
         }
-    }
-
 }
 
 class ValidatorStringNotEmpty {
-    fun validate(sample: String): ValidationResult {
-        if (sample.isNullOrBlank()){
-            return ValidationResult(
+    fun validate(sample: String): ValidationResult =if (sample.isNullOrBlank()){
+            ValidationResult(
                 errors = listOf(
                     ValidationError(
-                    message ="String \"$sample\" must not be empty or null"
+                        message ="String \"$sample\" must not be empty or null"
                     )
-                )   
+                )
             )
         }else{
-         return  ValidationResult.SUCCESS
+            ValidationResult.SUCCESS
         }
-    }
-
 }
 
 fun String.validate(validator: ValidatorStringNotEmpty)=validator.validate(this)
