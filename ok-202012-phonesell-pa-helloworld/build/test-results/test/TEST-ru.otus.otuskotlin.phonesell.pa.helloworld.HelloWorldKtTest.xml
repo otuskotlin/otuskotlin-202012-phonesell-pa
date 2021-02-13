@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.otus.otuskotlin.phonesell.pa.helloworld.HelloWorldKtTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-24T14:53:07" hostname="parallels-Parallels-Virtual-Platform" time="0.005">
-  <properties/>
-  <testcase name="someTest" classname="ru.otus.otuskotlin.phonesell.pa.helloworld.HelloWorldKtTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
