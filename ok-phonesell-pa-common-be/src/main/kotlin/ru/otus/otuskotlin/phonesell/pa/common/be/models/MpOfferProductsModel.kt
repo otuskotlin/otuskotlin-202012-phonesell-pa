@@ -7,6 +7,7 @@ data class MpOfferProductsModel(
     val quantityStock: Double = Double.NaN,
     val description: String = "",
     val photo: String = "",
+    val price: Double = Double.NaN,
     val params: MpOfferProductParamsModel= MpOfferProductParamsModel.NONE
 ){
     companion object {

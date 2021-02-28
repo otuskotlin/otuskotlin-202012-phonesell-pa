@@ -10,5 +10,6 @@ data class OfferProductsDto (
     val quantityStock: Double?=null,
     val description: String?=null,
     val photo: String?=null,
+    val price: Double?=null,
     val params: MutableSet<OfferProductParamsDto>? = null,
 )
