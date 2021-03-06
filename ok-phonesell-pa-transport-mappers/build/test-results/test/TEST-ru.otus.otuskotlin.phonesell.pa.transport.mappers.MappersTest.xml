@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.otus.otuskotlin.phonesell.pa.transport.mappers.MappersTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-28T09:40:48" hostname="parallels-Parallels-Virtual-Platform" time="0.052">
+  <properties/>
+  <testcase name="requestCreateMappingTest" classname="ru.otus.otuskotlin.phonesell.pa.transport.mappers.MappersTest" time="0.052"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
