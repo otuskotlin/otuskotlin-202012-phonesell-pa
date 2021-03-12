@@ -6,6 +6,7 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandRead
+import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandUpdate
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -21,6 +22,7 @@ internal class SerializationTest {
             serializersModule= SerializersModule {
                 polymorphic(MpMessage::class){
                     subclass(MpRequestDemandRead::class)
+                    subclass(MpRequestDemandUpdate::class)
                 }
             }
             classDiscriminator="type"

@@ -2,10 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="11">
-      <module name="otuskotlin-202012-phonesell-pa.ok-phonesell-pa-common-mp.commonMain" target="1.6" />
-      <module name="otuskotlin-202012-phonesell-pa.ok-phonesell-pa-common-mp.commonTest" target="1.6" />
-      <module name="otuskotlin-202012-phonesell-pa.ok-phonesell-pa-common-mp.jvmMain" target="1.6" />
-      <module name="otuskotlin-202012-phonesell-pa.ok-phonesell-pa-common-mp.jvmTest" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-common-mp.commonMain" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-common-mp.commonTest" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-common-mp.jvmMain" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-common-mp.jvmTest" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-transport-mp.commonMain" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-transport-mp.commonTest" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-transport-mp.jvmMain" target="1.6" />
+      <module name="otuskotlin-phonesell-pa.ok-phonesell-pa-transport-mp.jvmTest" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
