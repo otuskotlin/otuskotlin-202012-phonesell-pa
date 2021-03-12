@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ok-phonesell-pa-app-ktor/ok-phonesell-pa-app-ktor.iml" filepath="$PROJECT_DIR$/ok-phonesell-pa-app-ktor/ok-phonesell-pa-app-ktor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-be.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-be.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-mp.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-mp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-transport-mappers.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-transport-mappers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld/otuskotlin-202012-phonesell-pa.ok-202012-phonesell-pa-common-be.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld/otuskotlin-202012-phonesell-pa.ok-202012-phonesell-pa-common-be.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld/otuskotlin-202012-phonesell-pa.ok-202012-phonesell-pa-helloworld.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld/otuskotlin-202012-phonesell-pa.ok-202012-phonesell-pa-helloworld.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld/otuskotlin-202012-phonesell-pa.ok-202012-phonesell-pa-helloworld.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld/otuskotlin-202012-phonesell-pa.ok-202012-phonesell-pa-helloworld.test.iml" />
+    </modules>
+  </component>
+</project>
