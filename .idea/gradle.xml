@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ok-phonesell-pa-app-ktor" />
             <option value="$PROJECT_DIR$/ok-phonesell-pa-common-be" />
             <option value="$PROJECT_DIR$/ok-phonesell-pa-common-mp" />
             <option value="$PROJECT_DIR$/ok-phonesell-pa-transport-mappers" />
