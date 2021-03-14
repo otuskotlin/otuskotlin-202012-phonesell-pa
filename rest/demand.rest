@@ -14,11 +14,6 @@ Content-Type: application/json
   }
 }
 
-###
-POST http://localhost:8080/demand/read
-Content-Type: application/json
-
-{ "demandId": "d-7263"}
 
 ###
 POST http://localhost:8080/demand/read
