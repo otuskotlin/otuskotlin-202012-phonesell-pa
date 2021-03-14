@@ -24,8 +24,9 @@ class MpDemandController {
             val response:MpMessage=MpResponseDemandCreate(
                 responseId = "NewResp1",
                 onRequest = request.requestId,
-                endTime=Instant.now().toString(),
+                endTime =Instant.now().toString(),
                 status = ResponseStatusDto.SUCCESS,
+                demand = request.createData
                 /*demand = MpDemandDto(
                     lastName = "Petrov",
                     firstName = "Alexandr",

@@ -1,15 +1,10 @@
-POST http://{{url}}/demand/list
-Content-Type: application/json
-
-
-
 ###
 POST http://localhost:8080/demand/create
 Content-Type: application/json
 //{"createData": {"title": "Test Demand", "avatar": "icon://ok", "description": "Some Test Demand"}}
 //{"type": "MpRequestDemandCreate","createData": {"lastName": "Petrov", "firstName": "Alexandr", "contactPhone": "+79213245777","email": "a.sav210@gmail.com"}}
 
-{"type": "MpRequestDemandCreate", "requestId":"1234","onResponse":"12312","createData": {"lastName": "Petrov"}}
+{"type": "MpRequestDemandCreate", "requestId":"1234","onResponse":"12312" ,"createData": {"lastName": "Petrov", "firstName": "Alexandr", "contactPhone": "+79213245777","email": "a.sav210@gmail.com"}}
 
 ###
 POST http://localhost:8080/demand/read
