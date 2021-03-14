@@ -27,11 +27,20 @@ Content-Type: application/json
 {"type": "MpRequestDemandRead", "demandId": "d-7263"}
 
 ###
-POST http://{{url}}/demand/update
+POST http://localhost:8080/demand/update
 Content-Type: application/json
 
-{"updateData": {"id": "d-rrt", "title": "Test Demand", "avatar": "icon://ok", "description": "Some Test Demand"}}
-
+//{"updateData": {"id": "d-rrt", "title": "Test Demand", "avatar": "icon://ok", "description": "Some Test Demand"}}
+{"type": "MpRequestDemandUpdate", "requestId":"1234","onResponse":"12312",
+  "updateData": {
+    "lastName": "Petrov",
+    "firstName": "Alexandr",
+    "contactPhone": "+79213245777",
+    "email": "a.sav210@gmail.com",
+    "products": [{"idProduct": "Offer1","quantity":"1" },{"idProduct": "Offer2","quantity":"2" }],
+    "id":"999"
+  }
+}
 ###
 POST https://{{url}}/demand/delete
 Content-Type: application/json
