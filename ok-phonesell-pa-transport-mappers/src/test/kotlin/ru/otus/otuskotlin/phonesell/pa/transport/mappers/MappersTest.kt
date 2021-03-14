@@ -59,4 +59,3 @@ private fun DemandProductsDto.toDemandProductModel() =
         quantity=this.quantity?: "",
         price=this.price?:Double.MIN_VALUE,
     )
-

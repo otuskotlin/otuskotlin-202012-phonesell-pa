@@ -13,8 +13,9 @@ data class MpResponseDemandList(
     override val endTime: String?=null,
     override val errors: List<ErrorDto>?=null,
     override val status: ResponseStatusDto?=null,
-    override val debug: IMpDebug?=null,
-    val offers: List<OfferProductsDto>? = null,
+    override val debug: Debug?=null,
+    //val offers: List<OfferProductsDto>? = null,
+    val demands: List<MpDemandDto>? = null,
 ) :IMpResponse,MpMessage(){
     @Serializable
     data class Debug(

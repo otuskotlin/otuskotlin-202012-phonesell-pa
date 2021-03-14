@@ -13,8 +13,9 @@ data class MpResponseDemandDelete(
     override val endTime: String?=null,
     override val errors: List<ErrorDto>?=null,
     override val status: ResponseStatusDto?=null,
-    override val debug: IMpDebug?=null,
-    val offers: OfferProductsDto? = null,
+    override val debug: Debug?=null,
+    //val offers: OfferProductsDto? = null,
+    val demand: MpDemandDto? = null,
     val deleted: Boolean? = null,
 ) : IMpResponse,MpMessage(){
     @Serializable
