@@ -12,9 +12,11 @@ data class MpResponseDemandRead(
     override val endTime: String?=null,
     override val errors: List<ErrorDto>?=null,
     override val status: ResponseStatusDto?=null,
-    override val debug: IMpDebug?=null,
-    val offers: OfferProductsDto? = null,
+    override val debug: Debug?=null,
+    //val offers: OfferProductsDto? = null,
 ): IMpResponse, MpMessage(){
+
+    @Serializable
     data class Debug(
         override val mode: MpWorkModeDto?
     ) : IMpDebug

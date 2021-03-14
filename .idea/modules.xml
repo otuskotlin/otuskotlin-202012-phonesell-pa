@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-202012-phonesell-pa-helloworld.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ok-phonesell-pa-app-ktor/ok-phonesell-pa-app-ktor.iml" filepath="$PROJECT_DIR$/ok-phonesell-pa-app-ktor/ok-phonesell-pa-app-ktor.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-be.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-be.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-mp.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-common-mp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-transport-mappers.iml" filepath="$PROJECT_DIR$/.idea/modules/ok-phonesell-pa-transport-mappers.iml" />
