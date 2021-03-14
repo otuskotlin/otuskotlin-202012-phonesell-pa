@@ -37,7 +37,7 @@ Content-Type: application/json
 POST http://localhost:8080/phones/list
 Content-Type: application/json
 
-{"type": "MpRequestOffersList", "demandId": "d-7263"}
+{"type": "MpRequestOffersList"}
 
 
 ###

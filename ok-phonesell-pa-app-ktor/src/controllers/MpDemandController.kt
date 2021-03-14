@@ -48,7 +48,7 @@ class MpDemandController {
                 status = ResponseStatusDto.SUCCESS,
                 offers =mutableSetOf(
                         OfferProductsDto(
-                            id = "Demand-1",
+                            id = "Offer1",
                             brand ="Apple",
                             model = "Iphone 11",
                             //quantityStock = 4,
