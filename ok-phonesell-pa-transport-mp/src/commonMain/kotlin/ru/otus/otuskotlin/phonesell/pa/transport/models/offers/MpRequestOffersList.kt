@@ -6,13 +6,12 @@ import ru.otus.otuskotlin.phonesell.pa.transport.models.common.*
 @Serializable
 @SerialName("MpRequestOffersList")
 data class MpRequestOffersList(
-    override val responseId: String?,
-    override val onRequest: String?,
-    override val endTime: String?,
-    override val errors: List<ErrorDto>?,
-    override val status: ResponseStatusDto?,
-    override val debug: Debug?,
-):IMpResponse,MpMessage(){
+    override val requestId: String?=null,
+    override val onResponse: String?=null,
+    override val startTime: String?=null,
+    override val debug: IMpDebug?=null,
+
+):IMpRequest,MpMessage(){
     @Serializable
     data class Debug(
         override val mode: MpWorkModeDto?

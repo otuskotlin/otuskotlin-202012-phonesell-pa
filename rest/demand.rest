@@ -34,9 +34,10 @@ Content-Type: application/json
 {"demandId": "d-rrt"}
 
 ###
-POST http://{{url}}/demand/offers
+POST http://localhost:8080/phones/list
 Content-Type: application/json
 
-{"demandId": "d-rrt"}
+{"type": "MpRequestOffersList", "demandId": "d-7263"}
+
 
 ###
