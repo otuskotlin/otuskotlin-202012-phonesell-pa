@@ -13,7 +13,7 @@ data class MpRequestDemandDelete(
     override val requestId: String?,
     override val onResponse: String?,
     override val startTime: String?,
-    override val debug: IMpDebug?
+    override val debug: Debug?
 ):IMpRequest,MpMessage(){
     @Serializable
     data class Debug(
