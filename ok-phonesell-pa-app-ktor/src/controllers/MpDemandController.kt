@@ -27,6 +27,7 @@ class MpDemandController {
 
             )
             pipelineContext.call.respond(response)
+
         } catch (e: Throwable){
             log.error ("Read chain error",e)
 
