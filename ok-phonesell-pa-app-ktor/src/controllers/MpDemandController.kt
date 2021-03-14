@@ -11,6 +11,7 @@ import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandR
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpResponseDemandRead
 import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpRequestOffersList
 import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpResponseOffersList
+import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.OfferProductParamsDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.OfferProductsDto
 import java.time.Instant
 
@@ -51,8 +52,41 @@ class MpDemandController {
                             id = "Offer1",
                             brand ="Apple",
                             model = "Iphone 11",
-                            //quantityStock = 4,
-                    ),
+                            quantityStock = "4",
+                            description ="Самый лучший телефон",
+                            price = "100000",
+                            params = mutableSetOf(
+                                OfferProductParamsDto(
+                                    id="Offer1Prop1",
+                                    nameParam="Цвет",
+                                    valueParam="Черный",
+                                ),
+                                OfferProductParamsDto(
+                                    id="Offer1Prop1",
+                                    nameParam="Диоганаль",
+                                    valueParam="3.5 дюйма",
+                                ),
+                            )
+                       ),OfferProductsDto(
+                            id = "Offer2",
+                            brand ="Samsung",
+                            model = "Galaxy 5",
+                            quantityStock = "20",
+                            description ="Отличныйтелефон",
+                            price = "50000",
+                            params = mutableSetOf(
+                                OfferProductParamsDto(
+                                    id="Offer1Prop1",
+                                    nameParam="Цвет",
+                                    valueParam="Черный",
+                                ),
+                                OfferProductParamsDto(
+                                    id="Offer1Prop1",
+                                    nameParam="Диоганаль",
+                                    valueParam="3.5 дюйма",
+                                ),
+                            )
+                        ),
                 )
             )
             pipelineContext.call.respond(response)
