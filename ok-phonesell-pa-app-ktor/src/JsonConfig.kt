@@ -26,7 +26,7 @@ val jsonConfig: Json by lazy {
                 subclass(MpResponseDemandList::class)
                 subclass(MpRequestOffersList::class)
                 subclass(MpResponseOffersList::class)
-                subclass(MpDemandCreateDto::class)
+                //subclass(MpDemandCreateDto::class)
             }
         }
         classDiscriminator = "type"

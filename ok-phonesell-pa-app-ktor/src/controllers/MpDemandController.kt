@@ -58,6 +58,25 @@ class MpDemandController {
         }
 
     }
+    suspend fun update(pipelineContext: PipelineContext<Unit, ApplicationCall>) {
+        try {
+            val request=pipelineContext.call.receive<MpMessage>() as MpRequestDemandUpdate
+            //some logic
+            val response:MpMessage=MpResponseDemandUpdate(
+                responseId = "123",
+                onRequest = request.requestId,
+                endTime=Instant.now().toString(),
+                status = ResponseStatusDto.SUCCESS,
+
+                )
+            pipelineContext.call.respond(response)
+
+        } catch (e: Throwable){
+            log.error ("Read chain error",e)
+
+        }
+
+    }
 
     suspend fun list(pipelineContext: PipelineContext<Unit, ApplicationCall>) {
         try {
