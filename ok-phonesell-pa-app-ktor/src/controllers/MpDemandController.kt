@@ -7,8 +7,7 @@ import io.ktor.util.pipeline.*
 import org.slf4j.LoggerFactory
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.ResponseStatusDto
-import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandRead
-import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpResponseDemandRead
+import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.*
 import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpRequestOffersList
 import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpResponseOffersList
 import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.OfferProductParamsDto
@@ -18,6 +17,36 @@ import java.time.Instant
 class MpDemandController {
     private val log=LoggerFactory.getLogger(this::class.java)!!
 
+    suspend fun create(pipelineContext: PipelineContext<Unit, ApplicationCall>) {
+        try {
+            val request=pipelineContext.call.receive<MpMessage>() as MpRequestDemandCreate
+            //some logic
+            val response:MpMessage=MpResponseDemandCreate(
+                responseId = "NewResp1",
+                onRequest = request.requestId,
+                endTime=Instant.now().toString(),
+                status = ResponseStatusDto.SUCCESS,
+                demand = MpDemandDto(
+                    lastName = "Petrov",
+                    firstName = "Alexandr",
+                    contactPhone = "+79213245777",
+                    email = "a.sav210@gmail.com" ,
+                    id ="Demand1"
+                )
+
+            )
+            pipelineContext.call.respond(response)
+
+        } catch (e: Throwable){
+            log.error ("Read chain error",e)
+            MpResponseDemandCreate(
+                responseId = "NewResp1",
+                status = ResponseStatusDto.INTERNAL_SERVER_ERROR,
+            )
+
+        }
+
+    }
     suspend fun read(pipelineContext: PipelineContext<Unit, ApplicationCall>) {
         try {
             val request=pipelineContext.call.receive<MpMessage>() as MpRequestDemandRead

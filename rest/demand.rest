@@ -6,8 +6,9 @@ Content-Type: application/json
 ###
 POST http://{{url}}/demand/create
 Content-Type: application/json
+//{"createData": {"title": "Test Demand", "avatar": "icon://ok", "description": "Some Test Demand"}}
 
-{"createData": {"title": "Test Demand", "avatar": "icon://ok", "description": "Some Test Demand"}}
+{"createData": {"lastName": "Petrov", "firstName": "Alexandr", "contactPhone": "+79213245777","email": "a.sav210@gmail.com"},"type": "MpRequestDemandCreate"}
 
 ###
 POST http://localhost:8080/demand/read
