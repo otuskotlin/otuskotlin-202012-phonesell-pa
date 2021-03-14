@@ -13,7 +13,7 @@ data class MpRequestDemandCreate(
     override val requestId: String? = null,
     override val onResponse: String?=null,
     override val startTime: String?=null,
-    override val debug: IMpDebug?=null,
+    override val debug: Debug?=null,
     val createData: MpDemandCreateDto? = null,
 ):IMpRequest,MpMessage(){
     @Serializable

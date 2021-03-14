@@ -9,4 +9,4 @@ data class MpDemandCreateDto(
     override val contactPhone: String?,
     override val email: String?,
     override val products: Set<DemandProductsDto>?
-):IMpDemandItemCreateDto,MpMessage()
+):IMpDemandItemCreateDto
