@@ -27,24 +27,15 @@ class MpDemandController {
                 endTime =Instant.now().toString(),
                 status = ResponseStatusDto.SUCCESS,
                 demand = request.createData
-                /*demand = MpDemandDto(
-                    lastName = "Petrov",
-                    firstName = "Alexandr",
-                    contactPhone = "+79213245777",
-                    email = "a.sav210@gmail.com" ,
-                    id ="Demand1"
-                )*/
-
             )
             pipelineContext.call.respond(response)
 
         } catch (e: Throwable){
             log.error ("Read chain error",e)
-            /*MpResponseDemandCreate(
+            MpResponseDemandCreate(
                 responseId = "NewResp1",
                 status = ResponseStatusDto.INTERNAL_SERVER_ERROR,
-            )*/
-
+            )
         }
 
     }
