@@ -6,6 +6,8 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.*
+import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpRequestOffersList
+import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpResponseOffersList
 
 val jsonConfig: Json by lazy {
     Json {
@@ -22,6 +24,8 @@ val jsonConfig: Json by lazy {
                 subclass(MpResponseDemandDelete::class)
                 subclass(MpResponseDemandUpdate::class)
                 subclass(MpResponseDemandList::class)
+                subclass(MpRequestOffersList::class)
+                subclass(MpResponseOffersList::class)
             }
         }
         classDiscriminator = "type"
