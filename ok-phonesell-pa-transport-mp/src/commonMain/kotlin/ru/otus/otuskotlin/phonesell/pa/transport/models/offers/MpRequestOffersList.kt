@@ -9,7 +9,7 @@ data class MpRequestOffersList(
     override val requestId: String?=null,
     override val onResponse: String?=null,
     override val startTime: String?=null,
-    override val debug: IMpDebug?=null,
+    override val debug: Debug?=null,
 
 ):IMpRequest,MpMessage(){
     @Serializable

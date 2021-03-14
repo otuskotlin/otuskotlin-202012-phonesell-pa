@@ -4,10 +4,11 @@ data class MpOfferProductsModel(
     val id: MpOfferProductsIdModel = MpOfferProductsIdModel.NONE,
     val brand: String = "",
     val model: String = "",
-    val quantityStock: Double = Double.NaN,
+    //val quantityStock: Double = Double.NaN,
+    val quantityStock: String = "",
     val description: String = "",
     val photo: String = "",
-    val price: Double = Double.NaN,
+    val price: String = "",
     val params: MpOfferProductParamsModel= MpOfferProductParamsModel.NONE
 ){
     companion object {
