@@ -4,7 +4,7 @@ data class MpDemandProductsModel(
     val id:  MpDemandProductsIdModel = MpDemandProductsIdModel.NONE,
     val idProduct: String = "",
     val quantity:  String = "",
-    val price: Double = Double.NaN,
+    val price: String = "",
 ){
     companion object {
         val NONE = MpDemandProductsModel()

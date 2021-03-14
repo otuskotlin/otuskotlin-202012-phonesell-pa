@@ -24,13 +24,13 @@ internal class MappersTest {
                         id = "Demand-1",
                         idProduct="idProduct-1",
                         quantity = "2",
-                        price = 50000.40,
+                        price = "50000.40",
                     ),
                     DemandProductsDto(
                         id = "Demand-2",
                         idProduct="idPrdouct-2",
                         quantity = "2",
-                        price = 50000.40,
+                        price = "50000.40",
                     ),
                 )
             )
@@ -57,5 +57,5 @@ private fun DemandProductsDto.toDemandProductModel() =
         id = this.id?.let { MpDemandProductsIdModel(it) }?: MpDemandProductsIdModel.NONE,
         idProduct = this.idProduct?: "",
         quantity=this.quantity?: "",
-        price=this.price?:Double.MIN_VALUE,
+        price=this.price?: "",
     )

@@ -20,5 +20,5 @@ private fun DemandProductsDto.toDemandProductModel() =
         id = this.id?.let { MpDemandProductsIdModel(it) }?: MpDemandProductsIdModel.NONE,
         idProduct = this.idProduct?: "",
         quantity=this.quantity?: "",
-        price=this.price?: Double.MIN_VALUE,
+        price=this.price?: "",
     )

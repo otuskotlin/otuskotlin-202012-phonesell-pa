@@ -7,5 +7,5 @@ class DemandProductsDto (
     val id:        String? = null,
     val idProduct: String?=null,
     val quantity:  String?=null,
-    val price: Double?=null,
+    val price: String?=null,
 )
