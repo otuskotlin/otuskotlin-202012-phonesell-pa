@@ -29,7 +29,7 @@ docker {
     javaApplication {
         baseImage.set("adoptopenjdk/openjdk11:alpine-jre")
         maintainer.set("(c) Otus")
-        ports.set(listOf(8081))
+        ports.set(listOf(8080))
         val imageName = project.name
         images.set(listOf(
             "$imageName:${project.version}",
