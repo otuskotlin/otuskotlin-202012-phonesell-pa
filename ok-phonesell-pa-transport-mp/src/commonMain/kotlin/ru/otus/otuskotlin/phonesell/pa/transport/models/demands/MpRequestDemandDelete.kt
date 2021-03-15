@@ -10,10 +10,11 @@ import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpWorkModeDto
 @Serializable
 @SerialName("MpRequestDemandDelete")
 data class MpRequestDemandDelete(
-    override val requestId: String?,
-    override val onResponse: String?,
-    override val startTime: String?,
-    override val debug: Debug?
+    override val requestId: String?=null,
+    override val onResponse: String?=null,
+    override val startTime: String?=null,
+    override val debug: Debug?=null,
+    val demandId: String? = null,
 ):IMpRequest,MpMessage(){
     @Serializable
     data class Debug(

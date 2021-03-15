@@ -77,8 +77,26 @@ class MpDemandController {
         }
 
     }
+    suspend fun delete (pipelineContext: PipelineContext<Unit, ApplicationCall>) {
+        try {
+            val request=pipelineContext.call.receive<MpMessage>() as MpRequestDemandDelete
+            //some logic
+            val response:MpMessage=MpResponseDemandDelete(
+                responseId = "123",
+                onRequest = request.requestId,
+                endTime=Instant.now().toString(),
+                status = ResponseStatusDto.SUCCESS,
+                )
+            pipelineContext.call.respond(response)
 
-    suspend fun list(pipelineContext: PipelineContext<Unit, ApplicationCall>) {
+        } catch (e: Throwable){
+            log.error ("Read chain error",e)
+
+        }
+
+    }
+
+    suspend fun listPhones(pipelineContext: PipelineContext<Unit, ApplicationCall>) {
         try {
             val request=pipelineContext.call.receive<MpMessage>() as MpRequestOffersList
             //some logic
