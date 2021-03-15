@@ -37,11 +37,10 @@ Content-Type: application/json
   }
 }
 ###
-POST https://{{url}}/demand/delete
+POST http://localhost:8080/demand/delete
 Content-Type: application/json
 
-{"demandId": "d-rrt"}
-
+{"type":"MpRequestDemandDelete", "demandId": "123"}
 ###
 POST http://localhost:8080/phones/list
 Content-Type: application/json
