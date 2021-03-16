@@ -53,34 +53,35 @@ fun Application.module(testing: Boolean = false) {
             resources("static")
         }
 
-        route("/demand"){
-            post("/create") {
+        route("/") {
+            post("demand/create") {
                 demandController.create(this)
             }
-        }
+            //}
 
-        route("/demand"){
-            post("/read") {
+            //route("/demand"){
+            post("demand/read") {
                 demandController.read(this)
             }
-        }
+            //}
 
-        route("/demand"){
-            post("/update") {
+            //route("/demand"){
+            post("demand/update") {
                 demandController.update(this)
             }
-        }
+            //}
 
-        route("/demand"){
-            post("/delete") {
+            //route("/demand"){
+            post("demand/delete") {
                 demandController.delete(this)
             }
-        }
+            //}
 
-        route("/phones"){
-            post("/list") {
+            //route("/phones"){
+            post("phones/list") {
                 demandController.listPhones(this)
             }
+            //}
         }
     }
 }

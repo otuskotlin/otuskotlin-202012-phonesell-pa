@@ -5,7 +5,7 @@ import ru.otus.otuskotlin.phonesell.pa.common.be.models.*
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.DemandProductsDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpDemandCreateDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandCreate
-import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.OfferProductsDto
+import java.math.BigDecimal
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -57,6 +57,7 @@ private fun DemandProductsDto.toDemandProductModel() =
     MpDemandProductsModel(
         id = this.id?.let { MpDemandProductsIdModel(it) }?: MpDemandProductsIdModel.NONE,
         idProduct = this.idProduct?: "",
-        quantity=this.quantity?: "",
-        price=this.price?: "",
+        quantity =this.quantity?: "",
+        price =BigDecimal(this.price?:"0"),
+
     )
