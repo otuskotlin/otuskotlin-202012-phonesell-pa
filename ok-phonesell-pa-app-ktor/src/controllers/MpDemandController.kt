@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.ResponseStatusDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.*
-import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpRequestOffersList
-import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpResponseOffersList
-import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.OfferProductParamsDto
-import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.OfferProductsDto
+import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.*
 import java.time.Instant
 
 class MpDemandController {
@@ -124,7 +121,16 @@ class MpDemandController {
                                     nameParam="Диоганаль",
                                     valueParam="3.5 дюйма",
                                 ),
-                            )
+                            ),
+                            memProcGrp =
+                                MemProcTypeDto(
+                                    cpu="Qualcomm Snapdragon 662, 2000 МГц",
+                                    memory="64Гб",
+                                    quantityCores="8",
+                                    vRam="64",
+                                    videoProc="Adreno 610"
+                                )
+
                        ),OfferProductsDto(
                             id = "Offer2",
                             brand ="Samsung",

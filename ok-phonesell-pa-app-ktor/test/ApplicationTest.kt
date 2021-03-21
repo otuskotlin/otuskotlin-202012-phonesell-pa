@@ -43,7 +43,8 @@ class ApplicationTest {
                                 quantity="2"
                             ),
 
-                        )
+                        ),
+
 
                     )
                 )
@@ -189,6 +190,7 @@ class ApplicationTest {
             handleRequest(HttpMethod.Post, "/phones/list") {
                 val body = MpRequestOffersList(
                     requestId = "ReqList1",
+
                 )
                 val bodyString = jsonConfig.encodeToString(MpMessage.serializer(), body)
                 setBody(bodyString)
@@ -209,6 +211,16 @@ class ApplicationTest {
                 assertEquals(ResponseStatusDto.SUCCESS, res.status)
                 assertEquals("RespList1", res.responseId)
                 assertEquals("ReqList1", res.onRequest)
+                res.offers?.let {
+                    with(it.elementAt(0)){
+                        assertEquals("Iphone 11",model)
+                    }
+                }
+                res.offers?.let {
+                    with(it.elementAt(0)){
+                        assertEquals("Qualcomm Snapdragon 662, 2000 МГц",memProcGrp?.cpu)
+                    }
+                }
                 //assertEquals("test-demand", res.demand?.title)
             }
         }

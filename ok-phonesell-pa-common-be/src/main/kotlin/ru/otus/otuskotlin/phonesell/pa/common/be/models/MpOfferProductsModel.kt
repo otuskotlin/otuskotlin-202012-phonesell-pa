@@ -11,7 +11,9 @@ data class MpOfferProductsModel(
     val description: String = "",
     val photo: String = "",
     val price: BigDecimal = BigDecimal.ZERO,
-    val params: MpOfferProductParamsModel= MpOfferProductParamsModel.NONE
+    //val params: MpOfferProductParamsModel= MpOfferProductParamsModel.NONE
+    val params: MutableSet<MpOfferProductParamsModel> = mutableSetOf(),
+    val memProcType:MpProcMemTypeModel=MpProcMemTypeModel.NONE,
 ){
     companion object {
         val NONE = MpOfferProductsModel()
