@@ -21,7 +21,7 @@ private fun DemandProductsDto.toDemandProductModel() =
     MpDemandProductsModel(
         id = this.id?.let { MpDemandProductsIdModel(it) }?: MpDemandProductsIdModel.NONE,
         idProduct = this.idProduct?: "",
-        quantity =this.quantity?: "",
-        //price = BigDecimal(this.price?:"0"),
-         price= (this.price?.toBigDecimalOrNull()?:0) as BigDecimal
-        )
+        quantity =this.quantity?.toIntOrNull()?:0,
+        price= this.price?.toBigDecimalOrNull()?: BigDecimal.ZERO,
+
+    )

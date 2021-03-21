@@ -29,8 +29,8 @@ internal class MappersTest {
                     DemandProductsDto(
                         id = "Demand-2",
                         idProduct="idPrdouct-2",
-                        quantity = "2",
-                        price = "50000.40",
+                        quantity = "не число",
+                        price = "не число",
                     ),
                 )
             )
@@ -40,6 +40,18 @@ internal class MappersTest {
 
         assertEquals("Petrov", context.requestDemand.lastName)
         assertEquals(2, context.requestDemand.products.size)
+        with(context.requestDemand.products.elementAt(0)){
+            assertEquals("50000.40".toBigDecimal(),price)
+        }
+        with(context.requestDemand.products.elementAt(1)){
+            assertEquals("0".toBigDecimal(),price)
+        }
+        with(context.requestDemand.products.elementAt(0)){
+            assertEquals("2".toInt(),quantity)
+        }
+        with(context.requestDemand.products.elementAt(1)){
+            assertEquals("0".toInt(),quantity)
+        }
 
     }
 }

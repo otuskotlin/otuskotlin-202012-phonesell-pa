@@ -7,7 +7,7 @@ data class MpOfferProductsModel(
     val brand: String = "",
     val model: String = "",
     //val quantityStock: Double = Double.NaN,
-    val quantityStock: String = "",
+    val quantityStock: Int = 0,
     val description: String = "",
     val photo: String = "",
     val price: BigDecimal = BigDecimal.ZERO,
