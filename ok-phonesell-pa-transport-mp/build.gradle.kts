@@ -3,8 +3,6 @@ val serializationVersion: String by project
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
-
-
 }
 
 kotlin {
@@ -30,7 +28,6 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                //          api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 api("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
             }
         }
@@ -42,7 +39,7 @@ kotlin {
         }
         val jsMain by getting {
             dependencies {
-                implementation(kotlin("stdlib"))
+                implementation(kotlin("stdlib-js"))
             }
         }
         val jsTest by getting {

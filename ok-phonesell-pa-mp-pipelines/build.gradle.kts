@@ -26,6 +26,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation(project(":ok-phonesell-pa-common-mp"))
             }
         }
         val commonTest by getting {
