@@ -1,12 +1,15 @@
 package ru.otus.otuskotlin.phonesell.pa.common.be.context
 
-import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpDemandIdModel
-import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpDemandModel
-import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpOfferProductsModel
+import ru.otus.otuskotlin.phonesell.pa.common.be.models.*
 
 data class MpBeContext(
+    var status: MpBeContextStatus=MpBeContextStatus.NONE,
+    var errors: MutableList<IMpError> = mutableListOf(),
+    var stubCase: MpStubCase = MpStubCase.NONE,
     var requestDemandId: MpDemandIdModel = MpDemandIdModel.NONE,
     var requestDemand: MpDemandModel = MpDemandModel.NONE,
-    var listPhoneOffers: MpOfferProductsModel = MpOfferProductsModel.NONE,
+    var responseDemand:MpDemandModel = MpDemandModel.NONE,
+    //var listPhoneOffers: MpOfferProductsModel = MpOfferProductsModel.NONE,
+    var listPhoneOffers: MutableList<MpOfferProductsModel> = mutableListOf(),
 
-)
+    )
