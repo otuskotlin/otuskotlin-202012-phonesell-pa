@@ -1,11 +1,8 @@
 package ru.otus.otuskotlin.phonesell.pa.transport.mappers
 
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
-import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpDemandModel
-import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpDemandProductsIdModel
-import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpDemandProductsModel
-import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.DemandProductsDto
-import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandCreate
+import ru.otus.otuskotlin.phonesell.pa.common.be.models.*
+import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.*
 import java.math.BigDecimal
 
 fun MpBeContext.setQuery(request: MpRequestDemandCreate){
@@ -25,3 +22,28 @@ private fun DemandProductsDto.toDemandProductModel() =
         price= this.price?.toBigDecimalOrNull()?: BigDecimal.ZERO,
 
     )
+
+
+
+fun MpBeContext.setQuery(query: MpRequestDemandRead) = apply {
+    requestDemandId = query.demandId?.let { MpDemandIdModel(it) }?: MpDemandIdModel.NONE
+
+    stubCase = when (query.stubCase) {
+        MpRequestDemandRead.StubCase.SUCCESS -> MpStubCase.DEMAND_READ_SUCCESS
+        else -> MpStubCase.NONE
+    }
+}
+
+
+
+fun MpBeContext.respondDemandGet() = MpResponseDemandRead(
+    demand = responseDemand.takeIf { it != MpDemandModel.NONE }?.toTransport()
+)
+
+private fun MpDemandModel.toTransport() = MpDemandDto(
+    id = id.id.takeIf { it.isNotBlank()},
+    firstName = firstName.takeIf {it.isNotBlank()},
+    lastName = lastName.takeIf {it.isNotBlank()},
+)
+
+

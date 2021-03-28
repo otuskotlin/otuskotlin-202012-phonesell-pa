@@ -1,11 +1,9 @@
 package ru.otus.otuskotlin.phonesell.pa.transport.mappers
 
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
-import ru.otus.otuskotlin.phonesell.pa.common.be.models.*
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.DemandProductsDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpDemandCreateDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandCreate
-import java.math.BigDecimal
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

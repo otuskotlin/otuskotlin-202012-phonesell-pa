@@ -1,5 +1,6 @@
 package ru.otus.otuskotlin.phonesell.pa.business.logic.be
 
+import ru.otus.otuskotlin.phonesell.pa.business.logic.be.pipelines.DemandReadPipeline
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
 
 class DemandCrud {
@@ -8,7 +9,7 @@ class DemandCrud {
     }
 
     suspend fun read(context: MpBeContext) {
-        //DemandRead.execute(context.apply(this::configureContext))
+        DemandReadPipeline.execute(context)
     }
 
     suspend fun update(context: MpBeContext) {
