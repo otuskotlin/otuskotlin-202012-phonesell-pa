@@ -11,6 +11,7 @@ import io.ktor.http.content.*
 import io.ktor.features.*
 import io.ktor.serialization.*
 import io.ktor.util.pipeline.*
+import ru.otus.otuskotlin.phonesell.pa.business.logic.be.DemandCrud
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.ResponseStatusDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.MpRequestDemandCreate
@@ -23,7 +24,8 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 @Suppress("unused") // Referenced in application.conf
 @kotlin.jvm.JvmOverloads
 fun Application.module(testing: Boolean = false) {
-    val demandController= MpDemandController()
+    val demandCrud = DemandCrud()
+    val demandController= MpDemandController(demandCrud)
     install(CORS) {
         method(HttpMethod.Options)
         method(HttpMethod.Put)

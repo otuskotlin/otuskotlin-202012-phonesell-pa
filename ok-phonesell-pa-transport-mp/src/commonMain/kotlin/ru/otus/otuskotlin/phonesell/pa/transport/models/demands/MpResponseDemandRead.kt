@@ -13,7 +13,6 @@ data class MpResponseDemandRead(
     override val errors: List<ErrorDto>?=null,
     override val status: ResponseStatusDto?=null,
     override val debug: Debug?=null,
-    //val offers: OfferProductsDto? = null,
     val demand: MpDemandDto? = null,
 ): IMpResponse, MpMessage(){
 

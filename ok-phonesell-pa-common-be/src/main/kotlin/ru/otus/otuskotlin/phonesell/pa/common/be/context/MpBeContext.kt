@@ -8,6 +8,7 @@ data class MpBeContext(
     var stubCase: MpStubCase = MpStubCase.NONE,
     var requestDemandId: MpDemandIdModel = MpDemandIdModel.NONE,
     var requestDemand: MpDemandModel = MpDemandModel.NONE,
+
     var responseDemand:MpDemandModel = MpDemandModel.NONE,
     //var listPhoneOffers: MpOfferProductsModel = MpOfferProductsModel.NONE,
     var listPhoneOffers: MutableList<MpOfferProductsModel> = mutableListOf(),

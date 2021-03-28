@@ -47,9 +47,15 @@ repositories {
 }
 
 dependencies {
+    val coroutinesVersion: String by project
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+
     implementation(project(":ok-phonesell-pa-common-be"))
     implementation(project(":ok-phonesell-pa-transport-mp"))
     implementation(project(":ok-phonesell-pa-transport-mappers"))
+    implementation(project(":ok-phonesell-pa-business-logic"))
+    implementation(project(":ok-phonesell-pa-transport-mappers"))
+
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")

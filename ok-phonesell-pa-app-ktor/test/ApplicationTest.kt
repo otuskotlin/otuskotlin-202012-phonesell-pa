@@ -77,6 +77,8 @@ class ApplicationTest {
                 val body = MpRequestDemandRead(
                     requestId = "321",
                     demandId = "123",
+                    stubCase=MpRequestDemandRead.StubCase.SUCCESS
+
                 )
                 val bodyString = jsonConfig.encodeToString(MpMessage.serializer(), body)
                 setBody(bodyString)
@@ -84,7 +86,7 @@ class ApplicationTest {
                 addHeader("Content-Type", "application/json")
 
             }.apply {
-                //println (response.content)
+                println (response.content)
 
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals(ContentType.Application.Json.withCharset(Charsets.UTF_8), response.contentType())

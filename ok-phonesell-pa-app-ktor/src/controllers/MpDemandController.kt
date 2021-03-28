@@ -5,13 +5,18 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.util.pipeline.*
 import org.slf4j.LoggerFactory
+import ru.otus.otuskotlin.phonesell.pa.business.logic.be.DemandCrud
+import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
+import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpStubCase
+import ru.otus.otuskotlin.phonesell.pa.transport.mappers.respondDemandGet
+import ru.otus.otuskotlin.phonesell.pa.transport.mappers.setQuery
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.ResponseStatusDto
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.*
 import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.*
 import java.time.Instant
 
-class MpDemandController {
+class MpDemandController ( private val crud:DemandCrud) {
     private val log=LoggerFactory.getLogger(this::class.java)!!
 
     suspend fun create(pipelineContext: PipelineContext<Unit, ApplicationCall>) {
@@ -40,13 +45,24 @@ class MpDemandController {
         try {
             val request=pipelineContext.call.receive<MpMessage>() as MpRequestDemandRead
             //some logic
+            val response:MpMessage=MpBeContext().run{
+                stubCase = MpStubCase.DEMAND_READ_SUCCESS
+                crud.read(setQuery(request))
+                respondDemandGet().copy(
+                    responseId = "123",
+                    status = ResponseStatusDto.SUCCESS,
+                    onRequest=request.requestId,
+                    endTime=Instant.now().toString(),
+
+                )
+            }
+            /*
             val response:MpMessage=MpResponseDemandRead(
                 responseId = "123",
                 onRequest = request.requestId,
                 endTime=Instant.now().toString(),
                 status = ResponseStatusDto.SUCCESS,
-
-            )
+            )*/
             pipelineContext.call.respond(response)
 
         } catch (e: Throwable){
