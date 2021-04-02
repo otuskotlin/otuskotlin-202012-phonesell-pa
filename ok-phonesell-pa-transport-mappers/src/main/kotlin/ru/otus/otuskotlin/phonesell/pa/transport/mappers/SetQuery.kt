@@ -19,9 +19,10 @@ private fun DemandProductsDto.toDemandProductModel() =
         id = this.id?.let { MpDemandProductsIdModel(it) }?: MpDemandProductsIdModel.NONE,
         idProduct = this.idProduct?: "",
         quantity =this.quantity?.toIntOrNull()?:0,
-        price= this.price?.toBigDecimalOrNull()?: BigDecimal.ZERO,
+        price = this.price?.toBigDecimalOrNull()?: BigDecimal.ZERO,
 
-    )
+        )
+
 
 
 
@@ -30,6 +31,7 @@ fun MpBeContext.setQuery(query: MpRequestDemandRead) = apply {
 
     stubCase = when (query.stubCase) {
         MpRequestDemandRead.StubCase.SUCCESS -> MpStubCase.DEMAND_READ_SUCCESS
+
         else -> MpStubCase.NONE
     }
 }
@@ -44,6 +46,17 @@ private fun MpDemandModel.toTransport() = MpDemandDto(
     id = id.id.takeIf { it.isNotBlank()},
     firstName = firstName.takeIf {it.isNotBlank()},
     lastName = lastName.takeIf {it.isNotBlank()},
+    contactPhone = contactPhone.takeIf {it.isNotBlank()},
+    email =email.takeIf {it.isNotBlank()},
+    products = products?.map { it.toDemandProductsDto() }?.toMutableSet()?: mutableSetOf()
 )
 
 
+private fun MpDemandProductsModel.toDemandProductsDto() =
+    DemandProductsDto(
+        id = this.id?.toString(),
+        idProduct = this.idProduct?: "",
+        quantity =this.quantity?.toString(),
+        price = this.price?.toString(),
+
+        )
