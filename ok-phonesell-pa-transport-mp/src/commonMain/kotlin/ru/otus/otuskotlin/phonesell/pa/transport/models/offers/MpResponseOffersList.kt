@@ -13,7 +13,7 @@ data class MpResponseOffersList(
     override val errors: List<ErrorDto>?=null,
     override val status: ResponseStatusDto?=null,
     override val debug: Debug?=null,
-    val offers: MutableSet<OfferProductsDto>?= null,
+    val offers: MutableSet<OfferProductsDto>? = null,
 ):IMpResponse,MpMessage(){
     @Serializable
     data class Debug(

@@ -11,6 +11,7 @@ data class MpBeContext(
 
     var responseDemand:MpDemandModel = MpDemandModel.NONE,
     //var listPhoneOffers: MpOfferProductsModel = MpOfferProductsModel.NONE,
-    var listPhoneOffers: MutableList<MpOfferProductsModel> = mutableListOf(),
+    var responseListPhoneOffers: MutableList<MpOfferProductsModel> = mutableListOf(),
+    var responseListPhoneOfferId:MpOfferProductsIdModel=MpOfferProductsIdModel.NONE,
 
     )

@@ -9,6 +9,7 @@ import ru.otus.otuskotlin.phonesell.pa.business.logic.be.DemandCrud
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
 import ru.otus.otuskotlin.phonesell.pa.common.be.models.MpStubCase
 import ru.otus.otuskotlin.phonesell.pa.transport.mappers.respondDemandGet
+import ru.otus.otuskotlin.phonesell.pa.transport.mappers.respondPhoneList
 import ru.otus.otuskotlin.phonesell.pa.transport.mappers.setQuery
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.ResponseStatusDto
@@ -29,6 +30,7 @@ class MpDemandController ( private val crud:DemandCrud) {
                 endTime =Instant.now().toString(),
                 status = ResponseStatusDto.SUCCESS,
                 demand = request.createData
+
             )
             pipelineContext.call.respond(response)
 
@@ -67,6 +69,10 @@ class MpDemandController ( private val crud:DemandCrud) {
 
         } catch (e: Throwable){
             log.error ("Read chain error",e)
+            MpResponseDemandRead(
+                responseId = "",
+                status = ResponseStatusDto.INTERNAL_SERVER_ERROR,
+            )
 
         }
 
@@ -113,6 +119,18 @@ class MpDemandController ( private val crud:DemandCrud) {
         try {
             val request=pipelineContext.call.receive<MpMessage>() as MpRequestOffersList
             //some logic
+            val response:MpMessage=MpBeContext().run{
+                stubCase = MpStubCase.PHONE_OFFERS_SUCCESS
+                crud.listPhones(setQuery(request))
+                respondPhoneList().copy(
+                    responseId = "123",
+                    status = ResponseStatusDto.SUCCESS,
+                    onRequest=request.requestId,
+                    endTime=Instant.now().toString(),
+
+                    )
+            }
+            /*
             val response:MpMessage=MpResponseOffersList(
                 responseId = "RespList1",
                 onRequest = request.requestId,
@@ -168,7 +186,7 @@ class MpDemandController ( private val crud:DemandCrud) {
                             )
                         ),
                 )
-            )
+            )*/
             pipelineContext.call.respond(response)
 
         } catch (e: Throwable){

@@ -3,6 +3,9 @@ package ru.otus.otuskotlin.phonesell.pa.transport.mappers
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
 import ru.otus.otuskotlin.phonesell.pa.common.be.models.*
 import ru.otus.otuskotlin.phonesell.pa.transport.models.demands.*
+import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpRequestOffersList
+import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.MpResponseOffersList
+import ru.otus.otuskotlin.phonesell.pa.transport.models.offers.OfferProductsDto
 import java.math.BigDecimal
 
 fun MpBeContext.setQuery(request: MpRequestDemandCreate){
@@ -36,6 +39,15 @@ fun MpBeContext.setQuery(query: MpRequestDemandRead) = apply {
     }
 }
 
+fun MpBeContext.setQuery(query: MpRequestOffersList) = apply {
+    requestDemandId = query.demandId?.let { MpDemandIdModel(it) }?: MpDemandIdModel.NONE
+
+    stubCase = when (query.stubCase) {
+        MpRequestOffersList.StubCase.SUCCESS -> MpStubCase.PHONE_OFFERS_SUCCESS
+
+        else -> MpStubCase.NONE
+    }
+}
 
 
 fun MpBeContext.respondDemandGet() = MpResponseDemandRead(
@@ -51,6 +63,16 @@ private fun MpDemandModel.toTransport() = MpDemandDto(
     products = products?.map { it.toDemandProductsDto() }?.toMutableSet()?: mutableSetOf()
 )
 
+private fun MpOfferProductsModel.toTransport() =
+    OfferProductsDto(
+    id = id.id.takeIf { it.isNotBlank()},
+    brand = brand.takeIf {it.isNotBlank()},
+    weight = weight.takeIf {it.isNotBlank()},
+    quantityStock = quantityStock?.toString(),
+    description=description.takeIf {it.isNotBlank()},
+    photo=photo.takeIf {it.isNotBlank()},
+    price=price.toString()
+)
 
 private fun MpDemandProductsModel.toDemandProductsDto() =
     DemandProductsDto(
@@ -58,5 +80,10 @@ private fun MpDemandProductsModel.toDemandProductsDto() =
         idProduct = this.idProduct?: "",
         quantity =this.quantity?.toString(),
         price = this.price?.toString(),
+    )
 
-        )
+
+fun MpBeContext.respondPhoneList() = MpResponseOffersList(
+    offers = responseListPhoneOffers?.map{it.toTransport()}?.toMutableSet()
+)
+

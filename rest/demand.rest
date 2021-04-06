@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
   "type": "MpRequestDemandRead",
-  "demandId": "d-7263",
+  "demandId": "",
   "requestId": "req1"
 }
 

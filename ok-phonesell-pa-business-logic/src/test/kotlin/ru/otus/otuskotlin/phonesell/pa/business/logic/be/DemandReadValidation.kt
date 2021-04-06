@@ -1,6 +1,7 @@
 package ru.otus.otuskotlin.phonesell.pa.business.logic.be
 
 import kotlinx.coroutines.runBlocking
+import ru.otus.otuskotlin.phonesell.pa.business.logic.be.pipelines.DemandListPhonesPipeline
 import ru.otus.otuskotlin.phonesell.pa.business.logic.be.pipelines.DemandReadPipeline
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContextStatus
@@ -32,6 +33,19 @@ internal  class DemandReadValidation {
 
         runBlocking {
             DemandReadPipeline.execute(ctx)
+            assertEquals(MpBeContextStatus.ERROR, ctx.status)
+            assertTrue { ctx.errors.first().message.contains("empty") }
+        }
+    }
+
+    @Test
+    fun `list demandId fails  empty`() {
+        val ctx = MpBeContext(
+            requestDemandId = MpDemandIdModel("")
+        )
+
+        runBlocking {
+            DemandListPhonesPipeline.execute(ctx)
             assertEquals(MpBeContextStatus.ERROR, ctx.status)
             assertTrue { ctx.errors.first().message.contains("empty") }
         }
