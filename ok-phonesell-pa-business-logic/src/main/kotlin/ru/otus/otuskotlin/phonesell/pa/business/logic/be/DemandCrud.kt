@@ -1,5 +1,6 @@
 package ru.otus.otuskotlin.phonesell.pa.business.logic.be
 
+import ru.otus.otuskotlin.phonesell.pa.business.logic.be.pipelines.DemandListPhonesPipeline
 import ru.otus.otuskotlin.phonesell.pa.business.logic.be.pipelines.DemandReadPipeline
 import ru.otus.otuskotlin.phonesell.pa.common.be.context.MpBeContext
 
@@ -20,8 +21,9 @@ class DemandCrud {
         //DemandDelete.execute(context.apply(this::configureContext))
     }
 
-    suspend fun offers(context: MpBeContext) {
+    suspend fun listPhones(context: MpBeContext) {
         //DemandOffers.execute(context.apply(this::configureContext))
+        DemandListPhonesPipeline.execute(context)
     }
 
     private fun configureContext(context: MpBeContext) {}

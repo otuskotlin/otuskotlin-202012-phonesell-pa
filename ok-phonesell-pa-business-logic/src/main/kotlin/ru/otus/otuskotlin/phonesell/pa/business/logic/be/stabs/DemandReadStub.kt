@@ -21,7 +21,7 @@ object DemandReadStub:IOperation<MpBeContext> by pipeline ({
                 email="a.sav210@gmail.com",
                 products= mutableSetOf(
                     MpDemandProductsModel(
-                        id = MpDemandProductsIdModel ("id1") ,
+                        id = (MpDemandProductsIdModel("id1")) ,
                         idProduct ="idProduct-1",
                         quantity = 2,
                         price = 50000.toBigDecimal(),
