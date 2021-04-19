@@ -18,18 +18,21 @@ internal class WebsocketTest {
             handleWebSocketConversation("/ws") { incoming, outgoing ->
                 val query = MpRequestDemandRead(
                     requestId = "123",
-                    debug = MpRequestDemandRead.Debug(
+                    /*debug = MpRequestDemandRead.Debug(
                         stubCase = MpRequestDemandRead.StubCase.SUCCESS
-                    ),
+                    ),*/
                     stubCase=MpRequestDemandRead.StubCase.SUCCESS,
 
                 )
+
                 withTimeoutOrNull(250L) {
                     while (true) {
                         val respJson =(incoming.receive() as Frame.Text).readText()
                         println("GOT INIT RESPONSE: $respJson")
                     }
                 }
+
+
 
 
                 val requestJson = jsonConfig.encodeToString(MpMessage.serializer(), query)
@@ -39,29 +42,10 @@ internal class WebsocketTest {
                 println("respJson: $respJson")
                 val response = jsonConfig.decodeFromString(MpMessage.serializer(),respJson) as MpResponseDemandRead
                 println("RESPONSE: $response")
-                assertEquals("123", response.onRequest)
+                assertEquals("Petrov", response.demand?.lastName)
 
             }
         }
     }
-    @Test
-    fun demandReadErrorTest() {
-        withTestApplication({ module(testing = true) }) {
-            handleWebSocketConversation("/ws") { incoming, outgoing ->
-                withTimeoutOrNull(250L) {
-                    while (true) {
-                        val respJson =(incoming.receive() as Frame.Text).readText()
-                        println("GOT INIT RESPONSE: $respJson")
-                    }
-                }
-                val requestJson = """{"type":"123"}"""
-                outgoing.send(Frame.Text(requestJson))
-                val respJson =(incoming.receive() as Frame.Text).readText()
-                println("RESPONSE: $respJson")
-                val response = jsonConfig.decodeFromString(MpMessage.serializer(),respJson) as MpResponseDemandRead
-                assertEquals(ResponseStatusDto.BAD_REQUEST, response.status)
 
-            }
-        }
-    }
 }
