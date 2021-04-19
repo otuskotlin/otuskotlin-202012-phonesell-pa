@@ -2,6 +2,7 @@ package com.example
 
 import com.example.controllers.MpDemandController
 import com.example.controllers.mpWebsocket
+import com.example.controllers.websocketEndpoints
 import com.example.services.DemandService
 import io.ktor.application.*
 import io.ktor.response.*
@@ -41,7 +42,7 @@ fun Application.module(testing: Boolean = false) {
         anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
     }
 
-    install(WebSockets)
+    //install(WebSockets)
 
     install(ContentNegotiation) {
         json(
@@ -52,11 +53,11 @@ fun Application.module(testing: Boolean = false) {
     }
 
     // Подключаем Websocket
-   /*
+
     websocketEndpoints(
         demandService = demandService,
     )
-    */
+
 
     routing {
         get("/") {
@@ -98,7 +99,7 @@ fun Application.module(testing: Boolean = false) {
             }
             //}
         }
-        mpWebsocket(demandService)
+       // mpWebsocket(demandService)
     }
 }
 

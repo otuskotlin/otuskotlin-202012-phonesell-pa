@@ -20,7 +20,7 @@ import java.time.Instant
 import java.util.*
 
 private val sessions = mutableMapOf<WebSocketSession, WsUserSession>()
-/*
+
 fun Application.websocketEndpoints(
     demandService: DemandService,
 ) {
@@ -30,7 +30,7 @@ fun Application.websocketEndpoints(
         mpWebsocket(demandService)
     }
 }
-*/
+
 @OptIn(InternalSerializationApi::class)
 fun Routing.mpWebsocket(
     demandService: DemandService,
