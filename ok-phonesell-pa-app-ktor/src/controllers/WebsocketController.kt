@@ -5,6 +5,7 @@ import com.example.helpers.service
 import com.example.jsonConfig
 import com.example.services.DemandService
 import com.example.toModel
+import io.ktor.application.*
 import io.ktor.http.cio.websocket.*
 import io.ktor.routing.*
 import io.ktor.websocket.*
@@ -19,7 +20,17 @@ import java.time.Instant
 import java.util.*
 
 private val sessions = mutableMapOf<WebSocketSession, WsUserSession>()
+/*
+fun Application.websocketEndpoints(
+    demandService: DemandService,
+) {
+    install(WebSockets)
 
+    routing {
+        mpWebsocket(demandService)
+    }
+}
+*/
 @OptIn(InternalSerializationApi::class)
 fun Routing.mpWebsocket(
     demandService: DemandService,

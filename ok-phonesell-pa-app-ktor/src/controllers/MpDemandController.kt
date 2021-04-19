@@ -47,16 +47,17 @@ class MpDemandController ( private val crud:DemandCrud) {
         try {
             val request=pipelineContext.call.receive<MpMessage>() as MpRequestDemandRead
             //some logic
-            val response:MpMessage=MpBeContext().run{
-                stubCase = MpStubCase.DEMAND_READ_SUCCESS
-                crud.read(setQuery(request))
-                respondDemandGet().copy(
-                    responseId = "123",
-                    status = ResponseStatusDto.SUCCESS,
-                    onRequest=request.requestId,
-                    endTime=Instant.now().toString(),
 
-                )
+            val response:MpMessage=MpBeContext().run{
+                    stubCase = MpStubCase.DEMAND_READ_SUCCESS
+                    crud.read(setQuery(request))
+                    respondDemandGet().copy(
+                        responseId = "123",
+                        status = ResponseStatusDto.SUCCESS,
+                        onRequest = request.requestId,
+                        endTime = Instant.now().toString(),
+                        )
+
             }
             /*
             val response:MpMessage=MpResponseDemandRead(

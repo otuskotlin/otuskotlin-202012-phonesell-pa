@@ -1,6 +1,7 @@
 val ktorVersion: String by project
 val kotlinVersion: String by project
 val logbackVersion: String by project
+val serializationVersion: String by project
 
 plugins {
     application
@@ -64,6 +65,7 @@ dependencies {
     implementation("io.ktor:ktor-server-host-common:$ktorVersion")
     implementation("io.ktor:ktor-serialization:$ktorVersion")
     implementation("io.ktor:ktor-websockets:$ktorVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
