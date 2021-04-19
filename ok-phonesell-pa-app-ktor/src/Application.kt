@@ -1,6 +1,8 @@
 package com.example
 
 import com.example.controllers.MpDemandController
+import com.example.controllers.mpWebsocket
+import com.example.services.DemandService
 import io.ktor.application.*
 import io.ktor.response.*
 import io.ktor.request.*
@@ -11,6 +13,7 @@ import io.ktor.http.content.*
 import io.ktor.features.*
 import io.ktor.serialization.*
 import io.ktor.util.pipeline.*
+import io.ktor.websocket.*
 import ru.otus.otuskotlin.phonesell.pa.business.logic.be.DemandCrud
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.MpMessage
 import ru.otus.otuskotlin.phonesell.pa.transport.models.common.ResponseStatusDto
@@ -26,6 +29,7 @@ fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 fun Application.module(testing: Boolean = false) {
     val demandCrud = DemandCrud()
     val demandController= MpDemandController(demandCrud)
+    val demandService = DemandService(demandCrud)
     install(CORS) {
         method(HttpMethod.Options)
         method(HttpMethod.Put)
@@ -37,6 +41,8 @@ fun Application.module(testing: Boolean = false) {
         anyHost() // @TODO: Don't do this in production if possible. Try to limit it.
     }
 
+    install(WebSockets)
+
     install(ContentNegotiation) {
         json(
            contentType = ContentType.Application.Json,
@@ -44,6 +50,13 @@ fun Application.module(testing: Boolean = false) {
         )
 
     }
+
+    // Подключаем Websocket
+   /*
+    websocketEndpoints(
+        demandService = demandService,
+    )
+    */
 
     routing {
         get("/") {
@@ -85,6 +98,7 @@ fun Application.module(testing: Boolean = false) {
             }
             //}
         }
+        mpWebsocket(demandService)
     }
 }
 

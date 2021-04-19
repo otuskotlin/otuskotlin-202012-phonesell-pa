@@ -21,7 +21,7 @@ data class MpRequestDemandRead(
     @Serializable
     data class Debug(
         override val mode: MpWorkModeDto?=null,
-       // var stubCase: StubCase?=StubCase.SUCCESS,
+        val stubCase: StubCase?=StubCase.SUCCESS,
     ) : IMpDebug
 
     @Serializable

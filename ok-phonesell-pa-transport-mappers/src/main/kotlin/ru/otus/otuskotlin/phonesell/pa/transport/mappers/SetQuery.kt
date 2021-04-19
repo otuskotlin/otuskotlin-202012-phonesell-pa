@@ -51,7 +51,9 @@ fun MpBeContext.setQuery(query: MpRequestOffersList) = apply {
 
 
 fun MpBeContext.respondDemandGet() = MpResponseDemandRead(
-    demand = responseDemand.takeIf { it != MpDemandModel.NONE }?.toTransport()
+    demand = responseDemand.takeIf { it != MpDemandModel.NONE }?.toTransport(),
+    responseId = responseId,
+    onRequest = onRequest,
 )
 
 private fun MpDemandModel.toTransport() = MpDemandDto(

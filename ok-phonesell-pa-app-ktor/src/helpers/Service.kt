@@ -17,7 +17,17 @@ suspend fun service(
 ): MpMessage? = when (query) {
     is MpRequestDemandRead -> demandService.read(context, query)
 
-    else -> null
+    else ->
         // В дальнейшем здесь должен оказаться чейн обработки ошибок, и других событий
-
+        when {
+            context.status == MpBeContextStatus.FAILING -> demandService.read(context, null)
+            // Если содзана новая сессия
+            (context.userSession.fwSession as? WebSocketSession)?.isActive == true -> demandService.read(
+                context,
+                MpRequestDemandRead()
+            )
+            // Если удалена сессия
+            (context.userSession.fwSession as? WebSocketSession)?.isActive == false -> null
+            else -> null
+        }
 }
